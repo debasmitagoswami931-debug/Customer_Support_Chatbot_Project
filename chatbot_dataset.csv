@@ -1,0 +1,101 @@
+text,intent
+hello,greeting
+hi,greeting
+hey,greeting
+good morning,greeting
+good afternoon,greeting
+good evening,greeting
+hello there,greeting
+hi chatbot,greeting
+how are you,greeting
+hey there,greeting
+bye,goodbye
+goodbye,goodbye
+see you later,goodbye
+talk to you later,goodbye
+see you,goodbye
+have a nice day,goodbye
+exit,goodbye
+quit,goodbye
+thanks bye,goodbye
+I am leaving,goodbye
+thank you,thanks
+thanks,thanks
+thank you so much,thanks
+that was helpful,thanks
+thanks a lot,thanks
+I appreciate it,thanks
+great help,thanks
+many thanks,thanks
+very helpful,thanks
+thank you for helping,thanks
+where is my order,order_status
+track my order,order_status
+order status,order_status
+has my order shipped,order_status
+I want to check my order,order_status
+how can I track my package,order_status
+my order status please,order_status
+where is my package,order_status
+check my delivery status,order_status
+order tracking help,order_status
+how long does delivery take,shipping
+what are the shipping charges,shipping
+when will my package arrive,shipping
+delivery information,shipping
+is shipping free,shipping
+how many days for delivery,shipping
+shipping details please,shipping
+tell me about delivery,shipping
+delivery time,shipping
+do you offer express shipping,shipping
+how can I return a product,return_refund
+I want to return my order,return_refund
+how do I get a refund,return_refund
+refund policy,return_refund
+my product is damaged,return_refund
+can I exchange my item,return_refund
+return and refund information,return_refund
+I received the wrong product,return_refund
+how many days for refund,return_refund
+I want my money back,return_refund
+what payment methods do you accept,payment
+can I pay by card,payment
+do you accept cash on delivery,payment
+payment options,payment
+how can I pay,payment
+is online payment safe,payment
+my payment failed,payment
+payment information,payment
+can I use upi,payment
+do you accept debit cards,payment
+tell me about your products,products
+what products do you sell,products
+show me your products,products
+product information,products
+do you have new products,products
+I want to buy something,products
+what is available,products
+tell me about product prices,products
+do you have discounts,products
+product details please,products
+what are your working hours,business_hours
+when are you open,business_hours
+what time do you close,business_hours
+are you open today,business_hours
+customer service hours,business_hours
+business hours,business_hours
+when can I contact you,business_hours
+are you available now,business_hours
+opening time,business_hours
+closing time,business_hours
+I want to talk to a human,human_support
+connect me to customer support,human_support
+speak to an agent,human_support
+contact customer service,human_support
+I need human assistance,human_support
+talk to your representative,human_support
+customer care number,human_support
+I need more help,human_support
+can I speak to someone,human_support
+contact support team,human_support
