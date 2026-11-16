@@ -1,4 +1,5 @@
 print("CHATBOT APP STARTED")
+
 import streamlit as st
 import joblib
 import re
@@ -18,24 +19,62 @@ def load_files():
 
 model, responses = load_files()
 
+
 def clean_text(text):
     text = str(text).lower()
     text = re.sub(r"[^a-z0-9\s]", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
+
 def chatbot_reply(user_input):
     cleaned = clean_text(user_input)
+    words = set(cleaned.split())
 
     if not cleaned:
         return "Please enter a message."
 
-    if any(word in cleaned for word in ["return", "refund", "exchange", "replace"]):
+    # Return and refund
+    if words.intersection({"return", "refund", "exchange", "replace"}):
         return responses["return_refund"]
 
-    if any(word in cleaned for word in ["hello", "hi", "hey"]):
+    # Business hours
+    if words.intersection({"hours", "open", "closing", "timing", "schedule"}):
+        return responses["business_hours"]
+
+    # Greeting
+    if words.intersection({"hello", "hi", "hey", "goodmorning", "goodafternoon"}):
         return responses["greeting"]
 
+    # Goodbye
+    if words.intersection({"bye", "goodbye", "farewell"}):
+        return responses["goodbye"]
+
+    # Thanks
+    if words.intersection({"thanks", "thank", "thankyou", "appreciate"}):
+        return responses["thanks"]
+
+    # Human support
+    if words.intersection({"agent", "representative", "human", "person"}):
+        return responses["human_support"]
+
+    # Order status
+    if words.intersection({"tracking", "track", "status", "order"}):
+        return responses["order_status"]
+
+    # Shipping and delivery
+    if words.intersection({"shipping", "delivery", "delivered", "arrive", "shipment"}):
+        return responses["shipping"]
+
+    # Payment
+    if words.intersection({"payment", "pay", "paid", "card", "transaction"}):
+        return responses["payment"]
+
+    # Products
+    if words.intersection({"product", "products", "item", "items", "catalog"}):
+        return responses["products"]
+
+    # Machine learning prediction
     probabilities = model.predict_proba([cleaned])[0]
     best_index = np.argmax(probabilities)
 
@@ -46,14 +85,14 @@ def chatbot_reply(user_input):
         return (
             "Sorry, I could not understand your question. "
             "Please ask about orders, delivery, payment, "
-            "products or returns."
+            "products, returns or business hours."
         )
 
     return responses[intent]
 
-    return responses[intent]
 
 st.title("🤖 Customer Support Chatbot")
+
 st.write(
     "Welcome! Ask me about orders, shipping, "
     "payments, products and returns."
