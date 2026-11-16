@@ -30,6 +30,12 @@ def chatbot_reply(user_input):
     if not cleaned:
         return "Please enter a message."
 
+    if any(word in cleaned for word in ["return", "refund", "exchange", "replace"]):
+        return responses["return_refund"]
+
+    if any(word in cleaned for word in ["hello", "hi", "hey"]):
+        return responses["greeting"]
+
     probabilities = model.predict_proba([cleaned])[0]
     best_index = np.argmax(probabilities)
 
@@ -42,6 +48,8 @@ def chatbot_reply(user_input):
             "Please ask about orders, delivery, payment, "
             "products or returns."
         )
+
+    return responses[intent]
 
     return responses[intent]
 
